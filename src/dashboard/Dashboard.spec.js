@@ -11,7 +11,6 @@ import { initialState, reducer } from "../reducers";
 
 afterEach(cleanup);
 
-
 describe('Dashboard', () => {
     it("should match the snapshot", () => {
         const tree = renderer.create(<Provider store={createStore(reducer)}><Dashboard /></Provider>).toJSON();

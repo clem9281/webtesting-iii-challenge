@@ -6,39 +6,17 @@ import "jest-dom/extend-expect";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
-import { initialState, reducer } from "../reducers";
+import { reducer } from "../reducers";
+
+import {closedStore, openStore, lockedStore, unlockedStore, renderWithRedux} from "../testHelpers";
 
 import Display from "./Display";
-
-const closedStore = {
-    closed: true
-}
-
-const openStore = {
-    closed: false
-}
-
-const lockedStore = {
-    locked: true
-}
-
-const unlockedStore = {
-    locked: false
-}
-
-const renderWithRedux = (ui, state) => {
-    const store = createStore(reducer, state);
-    return {
-        ...render(<Provider store={store}>{ui}</Provider>),
-      store,
-    }
-}
 
 afterEach(cleanup);
 
 describe('Display', () => {
-    it.skip("should match the snapshot", () => {
-        const tree = renderer.create(<Display />).toJSON();
+    it("should match the snapshot", () => {
+        const tree = renderer.create(<Provider store={createStore(reducer)}><Display /></Provider>).toJSON();
         expect(tree).toMatchSnapshot();
     })
 

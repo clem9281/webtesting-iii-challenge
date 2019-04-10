@@ -1,13 +1,13 @@
 export const TOGGLE_LOCK = "TOGGLE_LOCK";
-export const TOGGLE_CLOSE = TOGGLE_CLOSE;
+export const TOGGLE_CLOSE = "TOGGLE_CLOSE";
 
-export const toggleLock = () => {
+export const toggleLocked = () => {
     return {
         type: TOGGLE_LOCK
     }
 }
 
-export const toggleClose = () => {
+export const toggleClosed = () => {
     return {
         type: TOGGLE_CLOSE
     }

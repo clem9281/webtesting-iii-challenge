@@ -5,7 +5,6 @@ const Display = (props) => {
   const { locked, closed } = props;
   const closedClass = `led ${closed ? 'red-led' : 'green-led'}`;
   const lockedClass = `led ${locked ? 'red-led' : 'green-led'}`;
-  console.log(props);
   return (
     <div className="display panel">
       <div className={lockedClass}>{locked ? 'Locked' : 'Unlocked'}</div>

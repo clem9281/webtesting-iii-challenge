@@ -1,8 +1,9 @@
 import React from 'react';
+import {connect} from "react-redux";
+import {toggleLocked, toggleClosed} from "../actions";
 
 const Controls = props => {
   const { locked, closed, toggleLocked, toggleClosed } = props;
-
   return (
     <div className="controls panel">
       <button disabled={!closed} onClick={toggleLocked} className="toggle-btn">
@@ -15,4 +16,8 @@ const Controls = props => {
   );
 };
 
-export default Controls;
+const mapStateToProps = ({locked, closed}) => ({
+  locked, closed
+})
+
+export default connect(mapStateToProps, {toggleLocked, toggleClosed})(Controls);
