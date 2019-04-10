@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 
-const Display = ({ closed, locked }) => {
+const Display = (props) => {
+  const { locked, closed } = props;
   const closedClass = `led ${closed ? 'red-led' : 'green-led'}`;
   const lockedClass = `led ${locked ? 'red-led' : 'green-led'}`;
-
+  console.log(props);
   return (
     <div className="display panel">
       <div className={lockedClass}>{locked ? 'Locked' : 'Unlocked'}</div>
@@ -12,9 +14,13 @@ const Display = ({ closed, locked }) => {
   );
 };
 
-Display.defaultProps = {
-  closed: false,
-  locked: false,
-};
+// Display.defaultProps = {
+//   closed: false,
+//   locked: false,
+// };
 
-export default Display;
+const mapStateToProps = ({ locked, closed }) => ({
+  locked, closed
+})
+
+export default connect(mapStateToProps, {})(Display);

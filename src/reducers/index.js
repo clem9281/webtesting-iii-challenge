@@ -1,6 +1,6 @@
-const initialState = {
+export const initialState = {
     locked: false,
-    closed: true
+    closed: false
 }
 
 export const reducer = (state = initialState, action) => {

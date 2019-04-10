@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
 
     return (
       <>
-        <Display locked={locked} closed={closed} />
+        <Display />
         <Controls
           locked={locked}
           closed={closed}
